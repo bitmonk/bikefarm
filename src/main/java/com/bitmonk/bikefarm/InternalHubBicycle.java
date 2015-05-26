@@ -5,8 +5,23 @@ class InternalHubBicycle implements Bicycle {
     int gear = 3;
     int GEAR_MAX = 8;
 
-    public void changeCadence(int newValue) {
-         cadence = newValue;
+    // every bicycle has a point at which pedaling it is pointless
+    // this is a poor representation of that, but an improvement
+    // gravity can still accelerate to dizzying speeds
+    // and applying brakes is necessary to maintain speed
+    int SPEED_MAX = 100;
+    int CADENCE_MAX = 100;
+
+    // don't like that this is an absolute set
+    // not how acceleration works
+    public boolean changeCadence(int newValue) {
+         if (newValue >= 0) {
+             cadence = newValue;
+             return true;
+         } else {
+             cadence = 0;
+             return true;
+         }
     }
 
     public boolean shiftUp() {
@@ -36,12 +51,25 @@ class InternalHubBicycle implements Bicycle {
       }
     }
 
-    public void speedUp(int increment) {
-         speed = speed + increment;   
+    public boolean speedUp(int increment) {
+         int new_speed = speed+increment;
+         if (new_speed <= SPEED_MAX) {
+             speed = new_speed;
+             return true;
+         } else {
+             return false;
+         }
     }
 
-    public void applyBrakes(int decrement) {
-         speed = speed - decrement;
+    public boolean applyBrakes(int decrement) {
+         int new_speed = speed - decrement;
+         if ( new_speed >= 0) {
+             speed = new_speed;
+             return true;
+         } else {
+             speed = 0;
+             return true;
+         }
     }
 
     public void printStates() {

@@ -1,6 +1,6 @@
 interface Bicycle {
 
-    void changeCadence(int newValue);
+    boolean changeCadence(int newValue);
 
     boolean shiftUp();
 
@@ -8,9 +8,9 @@ interface Bicycle {
 
     boolean changeGear(int newValue);
 
-    void speedUp(int increment);
+    boolean speedUp(int increment);
 
-    void applyBrakes(int decrement);
+    boolean applyBrakes(int decrement);
 
     void printStates();
 }

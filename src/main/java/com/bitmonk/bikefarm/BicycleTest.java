@@ -30,7 +30,7 @@ public class BicycleTest {
         boolean result = acceleratebike.speedUp(10);
         int newStatus = acceleratebike.speed;
         assertTrue("failure - speedUp returned non-true value.", result);
-        assertEquals("failure - speedUp did not result in expected speed increase.", newStatus,initialStatus+10);
+        assertEquals("failure - speedUp did not result in expected speed increase.", initialStatus+10, newStatus);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class BicycleTest {
         int newStatus = deceleratebike.speed;
         assertTrue("failure - speedUp returned non-true value.", accel_result);
         assertTrue("failure - applyBrakes returned non-true value.", result);
-        assertEquals("failure - speedUp did not result in expected speed decrease.", newStatus,initialStatus+10);
+        assertEquals("failure - applyBrakes did not result in expected speed decrease.", initialStatus-10, newStatus);
     }
 
 }
