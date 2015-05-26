@@ -13,4 +13,14 @@ public class BicycleTest {
         assertEquals("failure - shiftUp did not result in expected gear change.", newStatus,initialStatus+1);
     }
 
+    @Test
+    public void shiftsDown() {
+        InternalHubBicycle downshiftbike = new InternalHubBicycle();
+        int initialStatus = downshiftbike.gear;
+        boolean result = downshiftbike.shiftDown();
+        int newStatus = downshiftbike.gear;
+        assertTrue("failure - shiftDown returned non-true value.", result);
+        assertEquals("failure - shiftDown did not result in expected gear change.", newStatus,initialStatus-1);
+    }
+
 }
