@@ -2,7 +2,7 @@ class InternalHubBicycle implements Bicycle {
 
     int cadence = 0;
     int speed = 0;
-    int gear = 1;
+    int gear = 3;
     int GEAR_MAX = 8;
 
     public void changeCadence(int newValue) {
